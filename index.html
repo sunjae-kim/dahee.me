@@ -10,6 +10,15 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Gaegu&display=swap");
 
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
     html,
     body {
       background-color: rgb(240, 230, 230);
@@ -18,6 +27,7 @@
 
     /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
     .flip-card {
+      animation: fadein 1s;
       position: fixed;
       left: 50%;
       top: 50%;
@@ -73,12 +83,12 @@
       max-height: 100%;
     }
 
-    img.hidden {
+    .hidden {
       display: none;
     }
   </style>
   <body>
-    <div class="flip-card">
+    <div class="flip-card hidden">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img id="dah1" src="dah.jpeg" alt="pretty dahee" />
@@ -92,6 +102,12 @@
   </body>
 
   <script>
+    const img = document.querySelector("#dah1");
+    const card = document.querySelector(".flip-card");
+    img.addEventListener("load", () => {
+      card.classList.remove("hidden");
+    });
+
     const changeImg = () => {
       setTimeout(() => {
         const dah1 = document.querySelector("#dah1");
@@ -99,10 +115,9 @@
 
         dah1.classList.toggle("hidden");
         dah2.classList.toggle("hidden");
-      }, 1000);
+      }, 800);
     };
 
-    const card = document.querySelector(".flip-card");
     card.addEventListener("click", () => {
       card.classList.toggle("flip");
       if (card.classList.contains("flip")) changeImg();
