@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <script
+      src="https://kit.fontawesome.com/cd06bf3ba6.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Pretty Dahee</title>
   </head>
   <style>
@@ -74,6 +78,7 @@
       color: rgb(213, 200, 200);
       transform: rotateY(180deg);
       display: flex;
+      flex-flow: column;
       align-items: center;
       justify-content: center;
     }
@@ -86,6 +91,15 @@
     .hidden {
       display: none;
     }
+
+    .icon-box > i {
+      cursor: pointer;
+      padding: 0.5em;
+    }
+
+    a {
+      color: inherit;
+    }
   </style>
   <body>
     <div class="flip-card hidden">
@@ -96,6 +110,11 @@
         </div>
         <div class="flip-card-back">
           <h1>dahee</h1>
+          <div class="icon-box">
+            <a href="https://www.instagram.com/b2byby/" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
         </div>
       </div>
     </div>
