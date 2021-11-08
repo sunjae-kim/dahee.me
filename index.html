@@ -9,41 +9,99 @@
   <style>
     html,
     body {
-      margin: 0;
+      background-color: rgb(240, 230, 230);
     }
-    .center {
+
+    /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+    .flip-card {
       position: fixed;
-      top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    #lightbox {
-      padding: 0 300px;
-      z-index: 1;
-      transition: left 0.5s;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #lightbox:hover {
       top: 50%;
-      left: 40%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      width: 200px;
+      height: 300px;
+      perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card.flip .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+      box-shadow: #0004 0px 0px 8px;
+    }
+
+    .flip-card-front {
+      background-color: rgb(112, 92, 90);
+      color: rgb(213, 200, 200);
+    }
+
+    .flip-card-back {
+      background-color: rgb(112, 92, 90);
+      color: rgb(213, 200, 200);
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     img {
-      width: 200px;
-      height: 300px;
-      border: 5px solid black;
-      box-shadow: rgb(0, 0, 0, 0.5) 0px 0px 8px;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    img.hidden {
+      display: none;
     }
   </style>
   <body>
-    <div class="center" id="lightbox">
-      <img src="dah.jpeg" alt="" />
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img id="dah1" src="dah.jpeg" alt="pretty dahee" />
+          <img id="dah2" class="hidden" src="dah2.jpeg" alt="pretty dahee" />
+        </div>
+        <div class="flip-card-back">
+          <h1>dahee</h1>
+        </div>
+      </div>
     </div>
-
-    <div class="center">이쁜다희</div>
   </body>
+
+  <script>
+    const changeImg = () => {
+      setTimeout(() => {
+        const dah1 = document.querySelector("#dah1");
+        const dah2 = document.querySelector("#dah2");
+
+        dah1.classList.toggle("hidden");
+        dah2.classList.toggle("hidden");
+      }, 1000);
+    };
+
+    const card = document.querySelector(".flip-card");
+    card.addEventListener("click", () => {
+      card.classList.toggle("flip");
+      if (card.classList.contains("flip")) changeImg();
+    });
+  </script>
 </html>
