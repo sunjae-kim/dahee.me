@@ -23,6 +23,7 @@ const init = () => {
   const img1 = document.querySelector('#dah1');
   const img2 = document.querySelector('#dah2');
   const card = document.querySelector('#card');
+  const insta = document.querySelector('#insta');
 
   img1.addEventListener('load', () => card.classList.remove('hidden'));
   img1.src = 'dah1.jpeg';
@@ -35,6 +36,7 @@ const init = () => {
       if (card.classList.contains('flip')) changeImg();
     }, 800),
   );
+  insta.addEventListener('click', e => e.stopPropagation());
 };
 
 init();
