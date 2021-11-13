@@ -6,7 +6,9 @@
     "esModuleInterop": true,
     "target": "es6",
     "lib": ["ES6", "DOM"],
-    "module": "es2015"
+    "module": "es2015",
+    "moduleResolution": "node",
+    "baseUrl": "."
   },
   "extends": "@tsconfig/svelte/tsconfig.json",
   "include": ["src/**/*"],
