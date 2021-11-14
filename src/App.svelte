@@ -1,16 +1,12 @@
 <script lang="ts">
-  import { preloadImg } from './utils';
-  import FlipCard from './components/FlipCard.svelte';
+  import FlipCard from '@/components/FlipCard/index.svelte';
+  import { preloadImg } from '@/utils';
 
   let imgIdx = 0;
   const dahImgs = ['images/dah1.jpeg', 'images/dah2.jpeg'];
-  
+
   const preloadAllImgs = () => Promise.all(dahImgs.map(x => preloadImg(x)));
-  let onFlip = () => {
-    setTimeout(() => {
-      imgIdx = Math.abs(imgIdx - 1);
-    }, 800);
-  };
+  let onFlip = () => setTimeout(() => (imgIdx ^= 1), 800); // toggle 0 1
 
   $: imgSrc = dahImgs[imgIdx];
 </script>

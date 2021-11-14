@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { throttle } from '../utils';
+  import { throttle } from '@/utils';
   import { fade } from 'svelte/transition';
 
   let flip = false;
