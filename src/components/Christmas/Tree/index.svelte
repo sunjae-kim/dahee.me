@@ -17,8 +17,15 @@
   </div>
   <div class="balls">
     <div class="ball1" />
+    <i class="fas fa-candy-cane" />
+
+    <a href="https://www.instagram.com/b2byby/" target="_blank" on:click={e => e.stopPropagation()}
+      ><i class="fab fa-instagram" /></a
+    >
   </div>
-  <div class="star" />
+  <i class="fas fa-star">
+    <div class="star-light" />
+  </i>
   <div class="gift" />
   <div class="ribbon" />
   <div class="gift2" />
@@ -31,7 +38,7 @@
 <style>
   .christmas {
     position: fixed;
-    bottom: 20vh;
+    bottom: 150px;
     right: 30vw;
   }
 
@@ -108,46 +115,22 @@
     z-index: -1;
   }
 
-  .star {
+  .fa-star {
+    color: #f9dc5c;
     margin: 50px 0;
     position: absolute;
-    display: block;
-    width: 0px;
-    height: 0px;
-    border-right: 25px solid transparent;
-    border-bottom: 17.5px solid #f9dc5c;
-    border-left: 25px solid transparent;
-    transform: rotate(35deg);
-    top: -190px;
-    left: -9px;
+    top: -200px;
+    left: -7px;
+    font-size: 40px;
   }
 
-  .star:before {
-    border-bottom: 20px solid #f9dc5c;
-    border-left: 7.5px solid transparent;
-    border-right: 7.5px solid transparent;
+  .star-light {
     position: absolute;
-    height: 0;
-    width: 0;
-    top: -12.5px;
-    left: -17.5px;
-    display: block;
-    content: '';
-    transform: rotate(-35deg);
-  }
-
-  .star:after {
-    position: absolute;
-    display: block;
-    top: 0.75px;
-    left: -26.25px;
-    width: 0px;
-    height: 0px;
-    border-right: 25px solid transparent;
-    border-bottom: 17.5px solid #f9dc5c;
-    border-left: 25px solid transparent;
-    transform: rotate(-70deg);
-    content: '';
+    top: 60%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
   }
 
   .lights {
@@ -443,15 +426,12 @@
     left: -15px;
   }
 
-  .balls:before {
-    content: '';
+  .fa-candy-cane {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #ffc857;
-    top: 35px;
+    color: #ffc857;
+    top: 40px;
     left: -15px;
+    transform: rotate(90deg);
   }
 
   .balls:after {
@@ -477,8 +457,8 @@
 
   .ball1:before {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background-color: #fae588;
     content: '';
@@ -486,6 +466,16 @@
     left: 50px;
   }
 
+  .fa-instagram {
+    position: absolute;
+    color: brown;
+    top: 83px;
+    left: 73.5px;
+    font-size: 16px;
+    transform: rotate(-30deg);
+  }
+
+  .star-light,
   .light1,
   .light2,
   .light3,
