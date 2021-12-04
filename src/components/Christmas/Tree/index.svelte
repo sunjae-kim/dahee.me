@@ -2,6 +2,7 @@
   <div class="tree">
     <div class="chain" />
     <div class="chain2" />
+    <div class="tree-after" />
   </div>
   <div class="lights">
     <div class="light1" />
@@ -64,15 +65,14 @@
     left: -75px;
   }
 
-  .tree:after {
-    content: '';
+  .tree-after {
     position: relative;
     width: 0;
     height: 0;
     border-right: 90px solid transparent;
     border-bottom: 270px solid #0e9594;
     border-bottom-right-radius: 30px;
-    top: -270px;
+    top: -252px;
     left: 15px;
   }
 
@@ -131,6 +131,8 @@
     width: 20px;
     height: 20px;
     transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px #f5de93, 0 0 15px #f5de93, 0 0 20px #f5de93, 0 0 40px #f5de93, 0 0 60px #decea4,
+        0 0 10px #d6c0a5, 0 0 98px #ff0000;
   }
 
   .lights {
@@ -475,7 +477,6 @@
     transform: rotate(-30deg);
   }
 
-  .star-light,
   .light1,
   .light2,
   .light3,
