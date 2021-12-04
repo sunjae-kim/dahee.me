@@ -6,8 +6,13 @@
 
 html,
 body {
-  background-color: rgb(240, 230, 230);
+  background-color: #111;
   font-family: 'Gaegu', cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -17,4 +22,14 @@ img {
 
 .hidden {
   display: none;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
