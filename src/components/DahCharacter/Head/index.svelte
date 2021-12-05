@@ -23,7 +23,7 @@
 
     <Lips />
   </div>
-  <div class="neck"></div>
+  <div class="neck" />
 </div>
 
 <style>
@@ -95,7 +95,6 @@
     width: 11px;
     height: 5px;
 
-    border: 0.3px solid #333;
     border-top: 0.5px solid #333;
 
     border-top-left-radius: 50px;
