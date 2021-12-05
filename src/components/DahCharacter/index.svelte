@@ -30,7 +30,7 @@
     justify-content: center;
     align-items: center;
 
-    /* animation: fadein 10s; */
+    animation: fadein 10s;
   }
 
   .heart {
