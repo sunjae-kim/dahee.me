@@ -74,8 +74,10 @@
     width: 11px;
     height: 1.5px;
 
-    background-color: #333;
-    top: 30.5px;
+    background-color: #333e;
+    top: 29px;
+
+    border-radius: 25%;
   }
 
   .eyebrow.left {
@@ -95,13 +97,13 @@
     width: 11px;
     height: 5px;
 
-    border-top: 0.5px solid #333;
+    border-top: 1px solid #333;
 
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 
     background-color: #fff;
-    top: 33.5px;
+    top: 32.5px;
   }
 
   .eyes.left {

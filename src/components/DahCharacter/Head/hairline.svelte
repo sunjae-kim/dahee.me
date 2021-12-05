@@ -12,7 +12,7 @@
     background-color: transparent;
     width: var(--width);
     height: 3px;
-    border: solid 0.5px wheat;
+    border: solid 0.5px;
     border-color: wheat transparent transparent transparent;
     border-radius: 50%/3px 3px 0 0;
     transform: rotate(270deg);

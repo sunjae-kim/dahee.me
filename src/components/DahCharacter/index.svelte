@@ -7,6 +7,7 @@
     <Head />
     <div class="cloth">
       <div class="line" />
+      <div class="zip" />
     </div>
     <div class="arm left" />
     <div class="arm right" />
@@ -29,7 +30,7 @@
     justify-content: center;
     align-items: center;
 
-    animation: fadein 10s;
+    /* animation: fadein 10s; */
   }
 
   .heart {
@@ -61,9 +62,24 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    height: 80px;
+    height: 83px;
     width: 1px;
     background-color: #aa95aa;
+
+    top: -3px;
+  }
+
+  .cloth .zip {
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gray;
+
+    top: -2px;
+
+    height: 5px;
+    width: 2px;
   }
 
   :root {
@@ -77,10 +93,9 @@
     width: 90px;
     height: var(--radius);
     border: solid 17px thistle;
-    border-color: thistle transparent transparent transparent;
+    border-color: thistle;
     border-radius: 50% / var(--radius) var(--radius) 0 0;
     top: 27px;
-    
   }
 
   .arm.left {
