@@ -2,18 +2,18 @@
   export let left: string;
   export let top: string;
   export let deg: string;
-  export let z: number;
+  export let z: number = 0;
 </script>
 
-<div style="--left: {left}; --top: {top}; --deg: {deg}; --z: {z}" class="main">
+<div style="--left: {left}; --top: {top}; --deg: {deg}; --z: {z}" class="arm">
   <div class="left" />
   <div class="right" />
 </div>
 
 <style>
-  .main {
-    z-index: var(--z);
+  .arm {
     position: absolute;
+    z-index: var(--z);
     left: var(--left);
     top: var(--top);
     transform: rotate(var(--deg));
@@ -23,7 +23,7 @@
     border-radius: 0 50% 50% 50%;
   }
 
-  .main > div {
+  .arm > div {
     position: absolute;
     width: 10px;
     height: 2px;

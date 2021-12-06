@@ -3,13 +3,13 @@
   export let top: string;
 </script>
 
-<div style="--left: {left}; --top: {top}" class="main">
+<div style="--left: {left}; --top: {top}" class="button">
   <div class="circle left" />
   <div class="circle right" />
 </div>
 
 <style>
-  .main {
+  .button {
     position: absolute;
     left: var(--left);
     top: var(--top);
