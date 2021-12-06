@@ -1,5 +1,6 @@
 <script lang="ts">
-  setTimeout(() => {
+  import { onMount } from 'svelte';
+  onMount(() => {
     let particlesJS = (window as any).particlesJS;
     particlesJS('particles-js', {
       particles: {
