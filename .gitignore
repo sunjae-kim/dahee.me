@@ -3,3 +3,7 @@
 
 .DS_Store
 package-lock.json
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
