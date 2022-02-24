@@ -1,6 +1,7 @@
 <script lang="ts">
   import christmas from '@/pages/christmas/index.svelte';
   import dah from '@/pages/dah/index.svelte';
+  import summerDiary from '@/pages/summer-diary/index.svelte';
   import { Route, Router } from 'svelte-routing';
 
   export let url = '';
@@ -8,7 +9,8 @@
 
 <main>
   <Router {url}>
-    <Route path="/christmas" component={christmas} />
     <Route path="/" component={dah} />
+    <Route path="/christmas" component={christmas} />
+    <Route path="/summer-diary" component={summerDiary} />
   </Router>
 </main>
