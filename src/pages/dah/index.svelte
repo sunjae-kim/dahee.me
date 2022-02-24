@@ -2,11 +2,9 @@
   import DahImgCard from '@/pages/dah/DahImgCard/index.svelte';
 </script>
 
-<main>
-  <div class="container">
-    <DahImgCard />
-  </div>
-</main>
+<div class="container">
+  <DahImgCard />
+</div>
 
 <style>
   .container {

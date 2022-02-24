@@ -6,15 +6,13 @@
   import DahCharacter from '@/pages/christmas/DahCharacter/index.svelte';
 </script>
 
-<main>
-  <div class="container">
-    <SnowParticles />
-    <Tree />
-    <SnowLand />
-    <DahCharacter />
-    <LittleSnowMan />
-  </div>
-</main>
+<div class="container">
+  <SnowParticles />
+  <Tree />
+  <SnowLand />
+  <DahCharacter />
+  <LittleSnowMan />
+</div>
 
 <style>
   .container {

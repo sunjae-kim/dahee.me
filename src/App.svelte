@@ -12,6 +12,3 @@
     <Route path="/" component={dah} />
   </Router>
 </main>
-
-<style>
-</style>
