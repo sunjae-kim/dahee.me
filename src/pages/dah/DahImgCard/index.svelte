@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FlipCard from '@/components/FlipCard/index.svelte';
+  import FlipCard from '@/pages/dah/FlipCard/index.svelte';
 
   let imgIdx = 0;
   const dahImgs = ['images/dah1.jpeg', 'images/dah2.jpeg'];
@@ -14,7 +14,7 @@
     {/each}
   </svelte:fragment>
   <svelte:fragment slot="back">
-    <h1>dahee</h1>
+    <h1 class="font-gaegu">dahee</h1>
     <a href="https://www.instagram.com/b2byby/" target="_blank" on:click={e => e.stopPropagation()}
       ><i class="fab fa-instagram" /></a
     >
