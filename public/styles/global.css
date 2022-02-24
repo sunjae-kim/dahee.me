@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  background-color: #111;
-  font-family: 'Gaegu', cursive;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -22,6 +16,10 @@ img {
 
 .hidden {
   display: none;
+}
+
+.font-gaegu {
+  font-family: 'Gaegu', cursive;
 }
 
 @keyframes fadein {

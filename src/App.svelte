@@ -1,17 +1,16 @@
 <script lang="ts">
-  import SnowParticles from '@/components/Christmas/SnowParticles/index.svelte';
-  import Tree from '@/components/Christmas/Tree/index.svelte';
-  import SnowLand from '@/components/Christmas/SnowLand/index.svelte';
-  import LittleSnowMan from '@/components/Christmas/LittleSnowMan/index.svelte';
-  import DahCharacter from '@/components/DahCharacter/index.svelte';
+  import christmas from '@/pages/christmas/index.svelte';
+  import dah from '@/pages/dah/index.svelte';
+  import { Route, Router } from 'svelte-routing';
+
+  export let url = '';
 </script>
 
 <main>
-  <SnowParticles />
-  <Tree />
-  <SnowLand />
-  <DahCharacter />
-  <LittleSnowMan />
+  <Router {url}>
+    <Route path="/christmas" component={christmas} />
+    <Route path="/" component={dah} />
+  </Router>
 </main>
 
 <style>
