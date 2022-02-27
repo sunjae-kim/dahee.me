@@ -8,9 +8,8 @@ import css from 'rollup-plugin-css-only';
 import livereload from 'rollup-plugin-livereload';
 import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
-import replace from '@rollup/plugin-replace';
-
 import sveltePreprocess from 'svelte-preprocess';
+
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -84,10 +83,6 @@ export default {
     typescript({
       sourceMap: !production,
       inlineSources: !production,
-    }),
-    replace({
-      preventAssignment: true,
-      'process.env.BASE_URL': JSON.stringify(production ? 'https://dahee.me' : 'http://localhost:5500'),
     }),
 
     // In dev mode, call `npm run start` once
