@@ -1,5 +1,8 @@
 <script lang="ts">
   import DahImgCard from '@/pages/dah/DahImgCard/index.svelte';
+
+  /** @referenrce https://github.com/EmilTholin/svelte-routing/issues/122#issuecomment-630745231 */
+  export let location;
 </script>
 
 <div class="container">
