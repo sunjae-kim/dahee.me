@@ -4,7 +4,7 @@
   import summerDiary from '@/pages/summer-diary/index.svelte';
   import { Route, Router } from 'svelte-routing';
 
-  export let url = '';
+  let url = '';
 </script>
 
 <main>

@@ -1,13 +1,16 @@
-import svelte from 'rollup-plugin-svelte';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
 import alias from '@rollup/plugin-alias';
-import livereload from 'rollup-plugin-livereload';
-import { terser } from 'rollup-plugin-terser';
-import sveltePreprocess from 'svelte-preprocess';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
+import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-import css from 'rollup-plugin-css-only';
 import path from 'path';
+import css from 'rollup-plugin-css-only';
+import livereload from 'rollup-plugin-livereload';
+import svelte from 'rollup-plugin-svelte';
+import { terser } from 'rollup-plugin-terser';
+import replace from '@rollup/plugin-replace';
+
+import sveltePreprocess from 'svelte-preprocess';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -55,10 +58,18 @@ export default {
         // enable run-time checks when not in production
         dev: !production,
       },
+      onwarn: (warning, handler) => {
+        // e.g. don't warn on <marquee> elements, cos they're cool
+        if (warning.code === 'unused-export-let') return;
+
+        // let Rollup handle all other warnings normally
+        handler(warning);
+      },
     }),
     // we'll extract any component CSS out into
     // a separate file - better for performance
     css({ output: 'bundle.css' }),
+    json(),
 
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In
@@ -73,6 +84,10 @@ export default {
     typescript({
       sourceMap: !production,
       inlineSources: !production,
+    }),
+    replace({
+      preventAssignment: true,
+      'process.env.BASE_URL': JSON.stringify(production ? 'https://dahee.me' : 'http://localhost:5500'),
     }),
 
     // In dev mode, call `npm run start` once
