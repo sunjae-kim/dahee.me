@@ -1,8 +1,11 @@
 <script lang="ts">
-  import { Particle } from '@/utils/particle';
+  import { Particle } from '@/vendors/particleJs';
   import { onMount } from 'svelte';
 
-  onMount(() => Particle.initParticleJs('snow'));
+  onMount(async () => {
+    let particlesJS = await Particle.init();
+    particlesJS('particles-js', Particle.particleOptions.snow);
+  });
 </script>
 
 <div id="particles-js" />

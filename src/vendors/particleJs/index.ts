@@ -1,8 +1,8 @@
-import snow from '@/utils/particle/options/snow.json';
+import snow from '@/vendors/particleJs/options/snow.json';
 
 type Particle = 'snow';
 export namespace Particle {
-  const preload = (): any => {
+  export const init = (): any => {
     return new Promise(resolve => {
       let script = document.createElement('script');
       script.onload = () => resolve((window as any).particlesJS);
@@ -12,12 +12,7 @@ export namespace Particle {
     });
   };
 
-  export const initParticleJs = async (particle: Particle) => {
-    let particlesJS = await preload();
-    particlesJS('particles-js', particleOptions[particle]);
-  };
-
-  const particleOptions: { [key in Particle]: any } = {
+  export const particleOptions: { [key in Particle]: any } = {
     snow,
   };
 }

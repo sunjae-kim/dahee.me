@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { throttle } from '@/utils';
+  import _ from '@/utils/lodash';
   import { onMount } from 'svelte';
 
   let flip = false;
@@ -7,7 +7,7 @@
   let card: HTMLElement;
   let image: HTMLImageElement;
 
-  const onFlip = throttle(() => {
+  const onFlip = _.throttle(() => {
     flip = !flip;
   }, 800);
 
