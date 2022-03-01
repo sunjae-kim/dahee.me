@@ -17,7 +17,7 @@
     });
     const { naturalHeight, naturalWidth } = image;
     const ratio = naturalHeight / naturalWidth;
-    const width = 200;
+    const width = 250;
     const height = width * ratio;
     card.style.width = `${width}px`;
     card.style.height = `${height}px`;
@@ -31,10 +31,20 @@
       <img src="images/dahee.jpeg" alt="pretty dahee" bind:this={image} />
     </div>
     <div class="flip-card-back">
-      <h1 class="font-gaegu">dahee</h1>
-      <a href="https://www.instagram.com/b2byby/" target="_blank" on:click={e => e.stopPropagation()}
-        ><i class="fab fa-instagram" /></a
-      >
+      <h1 class="name font-gaegu absolute-center">Dahee</h1>
+      <div class="absolute-center icon-box">
+        <a href="https://www.instagram.com/b2byby/" target="_blank" on:click={e => e.stopPropagation()}
+          ><div class="icon"><i class="fab fa-instagram" /></div></a
+        >
+        <a
+          href="https://m.blog.naver.com/PostList.naver?blogId=b2byby"
+          target="_blank"
+          on:click={e => e.stopPropagation()}
+          ><div class="icon">
+            <img src="/images/icons/naver-blog.png" alt="" />
+          </div></a
+        >
+      </div>
     </div>
   </div>
 </div>
@@ -47,6 +57,8 @@
     transform: translate(-50%, -50%);
     background-color: transparent;
     perspective: 1000px;
+
+    font-size: 1.5em;
   }
 
   .flip-card-inner {
@@ -73,21 +85,37 @@
   }
 
   .flip-card-back {
+    position: relative;
     background-color: #293b5f;
     color: #f3f1f5;
     transform: rotateY(180deg);
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
   }
 
-  a {
-    color: inherit;
-    padding: 0.5em;
+  .flip-card-back > .icon-box {
+    top: 90%;
   }
 
   i {
     vertical-align: text-top;
+  }
+
+  .icon-box {
+    display: flex;
+  }
+
+  .icon-box > * + * {
+    margin-left: 0.5em;
+  }
+
+  .icon-box > a {
+    color: inherit;
+    padding: 0.2em;
+  }
+
+  .icon-box .icon {
+    display: inline-block;
+    color: inherit;
+    width: 1em;
+    height: 1em;
   }
 </style>
