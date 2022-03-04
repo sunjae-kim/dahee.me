@@ -7,12 +7,12 @@
 
 <svelte:head />
 
-<div class="container">
+<div class="layout">
   <FlipCard />
 </div>
 
 <style>
-  .container {
+  .layout {
     background-color: rgb(240, 240, 250);
     height: 100vh;
   }

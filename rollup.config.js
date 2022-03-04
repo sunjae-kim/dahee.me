@@ -10,7 +10,6 @@ import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 
-
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
@@ -52,7 +51,12 @@ export default {
       ],
     }),
     svelte({
-      preprocess: sveltePreprocess({ sourceMap: !production }),
+      preprocess: sveltePreprocess({
+        sourceMap: !production,
+        postcss: {
+          plugins: [require('tailwindcss'), require('autoprefixer')],
+        },
+      }),
       compilerOptions: {
         // enable run-time checks when not in production
         dev: !production,

@@ -8,7 +8,7 @@
   export let location: Location;
 </script>
 
-<div class="container">
+<div class="layout">
   <SnowParticles />
   <Tree />
   <SnowLand />
@@ -17,7 +17,7 @@
 </div>
 
 <style>
-  .container {
+  .layout {
     background-color: #111;
     height: 100vh;
   }
