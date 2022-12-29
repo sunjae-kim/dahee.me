@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Nose from './nose.svelte';
-  import Arm from './arm.svelte';
-  import Button from './button.svelte';
-  import Cheek from './cheek.svelte';
+  import Nose from './nose.svelte'
+  import Arm from './arm.svelte'
+  import Button from './button.svelte'
+  import Cheek from './cheek.svelte'
 </script>
 
 <div class="container">

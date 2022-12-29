@@ -1,7 +1,9 @@
 <div class="balls">
   <div class="ball1" />
   <div class="ball2">
-    <a class="instagram" href="https://www.instagram.com/b2byby/" target="_blank"><i class="fab fa-instagram" /></a>
+    <a class="instagram" href="https://www.instagram.com/b2byby/" target="_blank" rel="noreferrer"
+      ><i class="fab fa-instagram" /></a
+    >
   </div>
   <i class="fas fa-candy-cane" />
 </div>

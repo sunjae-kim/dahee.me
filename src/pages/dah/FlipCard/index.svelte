@@ -1,31 +1,31 @@
 <script lang="ts">
-  import _ from '@/utils/lodash';
-  import { onMount } from 'svelte';
+  import _ from '@/utils/lodash'
+  import { onMount } from 'svelte'
 
-  let flip = false;
-  let loading = true;
-  let card: HTMLElement;
-  let image: HTMLImageElement;
+  let flip = false
+  let loading = true
+  let card: HTMLElement
+  let image: HTMLImageElement
 
   const onFlip = _.throttle(() => {
-    flip = !flip;
-  }, 800);
+    flip = !flip
+  }, 800)
 
   onMount(async () => {
     await new Promise(resolve => {
-      image.onload = resolve;
-    });
-    const { naturalHeight, naturalWidth } = image;
-    const ratio = naturalHeight / naturalWidth;
-    const width = 250;
-    const height = width * ratio;
-    card.style.width = `${width}px`;
-    card.style.height = `${height}px`;
-    loading = false;
-  });
+      image.onload = resolve
+    })
+    const { naturalHeight, naturalWidth } = image
+    const ratio = naturalHeight / naturalWidth
+    const width = 250
+    const height = width * ratio
+    card.style.width = `${width}px`
+    card.style.height = `${height}px`
+    loading = false
+  })
 </script>
 
-<div class="flip-card" class:flip class:fadein={!loading} on:click={onFlip} bind:this={card}>
+<button class="flip-card" class:flip class:fadein={!loading} on:click={onFlip} bind:this={card}>
   <div class="flip-card-inner">
     <div class="flip-card-front">
       <img src="images/dahee.jpeg" alt="pretty dahee" bind:this={image} />
@@ -33,13 +33,14 @@
     <div class="flip-card-back">
       <h1 class="name font-gaegu absolute-center">Dahee</h1>
       <div class="absolute-center icon-box">
-        <a href="https://www.instagram.com/b2byby/" target="_blank" on:click={e => e.stopPropagation()}
+        <a href="https://www.instagram.com/b2byby/" target="_blank" on:click={e => e.stopPropagation()} rel="noreferrer"
           ><div class="icon"><i class="fab fa-instagram" /></div></a
         >
         <a
           href="https://m.blog.naver.com/PostList.naver?blogId=b2byby"
           target="_blank"
           on:click={e => e.stopPropagation()}
+          rel="noreferrer"
           ><div class="icon">
             <img src="/images/icons/naver-blog.png" alt="" />
           </div></a
@@ -47,7 +48,7 @@
       </div>
     </div>
   </div>
-</div>
+</button>
 
 <style>
   .flip-card {

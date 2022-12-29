@@ -1,7 +1,7 @@
 <script lang="ts">
-  export let left: string;
-  export let top: string;
-  export let z: number = 0;
+  export let left: string
+  export let top: string
+  export let z: number = 0
 </script>
 
 <div style="--left: {left}; --top: {top}; --z: {z}" class="touch" />

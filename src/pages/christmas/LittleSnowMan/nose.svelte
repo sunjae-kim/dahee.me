@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let left: string;
-  export let top: string;
+  export let left: string
+  export let top: string
 </script>
 
 <div style="--left: {left}; --top: {top};" class="nose">

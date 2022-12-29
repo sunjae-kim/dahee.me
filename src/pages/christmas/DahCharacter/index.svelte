@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Head from './Head/index.svelte';
+  import Head from './Head/index.svelte'
 </script>
 
 <div class="container">

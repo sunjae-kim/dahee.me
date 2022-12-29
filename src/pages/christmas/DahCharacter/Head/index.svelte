@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Lips from './lips.svelte';
-  import Hair from './Hair/index.svelte';
-  import Eyes from './Eyes/index.svelte';
-  import Nose from './nose.svelte';
+  import Lips from './lips.svelte'
+  import Hair from './Hair/index.svelte'
+  import Eyes from './Eyes/index.svelte'
+  import Nose from './nose.svelte'
 </script>
 
 <div class="head">

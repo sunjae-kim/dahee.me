@@ -1,8 +1,8 @@
 <script lang="ts">
-  export let left: string;
-  export let top: string;
-  export let deg: string;
-  export let z: number = 0;
+  export let left: string
+  export let top: string
+  export let deg: string
+  export let z: number = 0
 </script>
 
 <div style="--left: {left}; --top: {top}; --deg: {deg}; --z: {z}" class="arm">

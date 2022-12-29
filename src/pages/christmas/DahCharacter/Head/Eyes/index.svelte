@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Eyeball from './eyeball.svelte';
+  import Eyeball from './eyeball.svelte'
 
-  export let direction: 'left' | 'right';
+  export let direction: 'left' | 'right'
 </script>
 
 <div class="eyebrow {direction}" />
