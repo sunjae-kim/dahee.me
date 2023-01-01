@@ -4,5 +4,5 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   plugins: [],
-  content: ['./src/**/*.svelte'],
+  content: ['./src/**/*.{html,js,svelte,ts}'],
 }
