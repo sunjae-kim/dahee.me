@@ -11,17 +11,17 @@
     flip = !flip
   }, 800)
 
-  onMount(async () => {
-    await new Promise(resolve => {
-      image.onload = resolve
-    })
-    const { naturalHeight, naturalWidth } = image
-    const ratio = naturalHeight / naturalWidth
-    const width = 250
-    const height = width * ratio
-    card.style.width = `${width}px`
-    card.style.height = `${height}px`
-    loading = false
+  onMount(() => {
+    image.onload = () => {
+      const { naturalHeight, naturalWidth } = image
+      const ratio = naturalHeight / naturalWidth
+      const width = 250
+      const height = width * ratio
+      card.style.width = `${width}px`
+      card.style.height = `${height}px`
+      loading = false
+    }
+    image.src = 'images/dahee.jpeg'
   })
 </script>
 
@@ -32,7 +32,7 @@
         <img src="images/dahee.jpeg" alt="pretty dahee" bind:this={image} />
       </div>
       <div class="flip-card-back">
-        <h1 class="name font-gaegu absolute-center">Dahee</h1>
+        <h1 class="font-gaegu absolute-center">Dahee</h1>
         <div class="absolute-center icon-box">
           <a
             href="https://www.instagram.com/b2byby/"
@@ -46,7 +46,7 @@
             on:click={e => e.stopPropagation()}
             rel="noreferrer"
             ><div class="icon">
-              <img src="/images/icons/naver-blog.png" alt="" />
+              <img src="/images/icons/naver-blog.png" alt="naver-blog" />
             </div></a
           >
         </div>
