@@ -1,110 +1,50 @@
 <script lang="ts">
-  import _ from 'lodash'
   import { onMount } from 'svelte'
+  import FlipCard from '@/components/FlipCard/index.svelte'
 
-  let flip = false
   let loading = true
-  let card: HTMLElement
   let image: HTMLImageElement
-
-  const onFlip = _.throttle(() => {
-    flip = !flip
-  }, 800)
+  let width: string
+  let height: string
 
   onMount(() => {
     image.onload = () => {
       const { naturalHeight, naturalWidth } = image
       const ratio = naturalHeight / naturalWidth
-      const width = 250
-      const height = width * ratio
-      card.style.width = `${width}px`
-      card.style.height = `${height}px`
+      const baseWidth = 250
+      width = `${baseWidth}px`
+      height = `${baseWidth * ratio}px`
       loading = false
     }
     image.src = 'images/dahee.jpeg'
   })
 </script>
 
-<div class="layout h-screen bg-blue-50">
-  <button class="flip-card" class:flip class:fadein={!loading} on:click={onFlip} bind:this={card}>
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="images/dahee.jpeg" alt="pretty dahee" bind:this={image} />
-      </div>
-      <div class="flip-card-back">
-        <h1 class="font-gaegu absolute-center">Dahee</h1>
-        <div class="absolute-center icon-box">
-          <a
-            href="https://www.instagram.com/b2byby/"
-            target="_blank"
-            on:click={e => e.stopPropagation()}
-            rel="noreferrer"><div class="icon"><i class="fab fa-instagram" /></div></a
-          >
-          <a
-            href="https://m.blog.naver.com/PostList.naver?blogId=b2byby"
-            target="_blank"
-            on:click={e => e.stopPropagation()}
-            rel="noreferrer"
-            ><div class="icon">
-              <img src="/images/icons/naver-blog.png" alt="naver-blog" />
-            </div></a
-          >
-        </div>
-      </div>
+<FlipCard {width} {height} {loading}>
+  <img slot="front" src="images/dahee.jpeg" alt="pretty dahee" bind:this={image} />
+  <div slot="back" class="relative h-full">
+    <h1 class="font-gaegu absolute-center">Dahee</h1>
+    <div class="absolute-center icon-box top-[90%]">
+      <a
+        href="https://www.instagram.com/b2byby/"
+        target="_blank"
+        on:click={e => e.stopPropagation()}
+        rel="noreferrer"><div class="icon"><i class="fab fa-instagram align-text-top" /></div></a
+      >
+      <a
+        href="https://m.blog.naver.com/PostList.naver?blogId=b2byby"
+        target="_blank"
+        on:click={e => e.stopPropagation()}
+        rel="noreferrer"
+        ><div class="icon">
+          <img src="/images/icons/naver-blog.png" alt="naver-blog" />
+        </div></a
+      >
     </div>
-  </button>
-</div>
+  </div>
+</FlipCard>
 
 <style>
-  .flip-card {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: transparent;
-    perspective: 1000px;
-
-    font-size: 1.5em;
-  }
-
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-
-  .flip-card.flip .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    box-shadow: #0004 0px 0px 8px;
-  }
-
-  .flip-card-back {
-    position: relative;
-    background-color: #293b5f;
-    color: #f3f1f5;
-    transform: rotateY(180deg);
-  }
-
-  .flip-card-back > .icon-box {
-    top: 90%;
-  }
-
-  i {
-    vertical-align: text-top;
-  }
-
   .icon-box {
     display: flex;
   }
