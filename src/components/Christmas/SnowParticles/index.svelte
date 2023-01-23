@@ -14,6 +14,6 @@
   #particles-js {
     position: fixed;
     inset: 0;
-    animation: fadein 2s;
+    animation: fade-in 2s;
   }
 </style>

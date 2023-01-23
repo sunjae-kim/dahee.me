@@ -15,7 +15,9 @@
   <button
     class="flip-card"
     class:flip
-    class:fadein={!loading}
+    class:visible={!loading}
+    class:invisible={loading}
+    class:animate-fade-in={!loading}
     on:click={onFlip}
     style:width
     style:height

@@ -22,9 +22,9 @@
 
 <FlipCard {width} {height} {loading}>
   <img slot="front" src="images/dahee.jpeg" alt="pretty dahee" bind:this={image} />
-  <div slot="back" class="relative h-full">
-    <h1 class="font-gaegu absolute-center">Dahee</h1>
-    <div class="absolute-center icon-box top-[90%]">
+  <div slot="back" class="relative flex h-full flex-col items-center justify-center">
+    <h1 class="font-gaegu">Dahee</h1>
+    <div class="icon-box absolute bottom-0 center-x">
       <a
         href="https://www.instagram.com/b2byby/"
         target="_blank"
