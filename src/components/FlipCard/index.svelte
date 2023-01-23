@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { throttle } from 'lodash'
+  import _ from 'lodash'
   export let width: string
   export let height: string
   export let loading: boolean
 
   let flip = false
 
-  const onFlip = throttle(() => {
+  const onFlip = _.throttle(() => {
     flip = !flip
   }, 800)
 </script>
