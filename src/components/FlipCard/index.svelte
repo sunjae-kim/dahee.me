@@ -3,6 +3,8 @@
   export let width: string
   export let height: string
   export let loading: boolean
+  let className: string
+  export { className as class }
 
   let flip = false
 
@@ -11,38 +13,30 @@
   }, 800)
 </script>
 
-<div class="layout h-screen bg-blue-50">
-  <button
-    class="flip-card"
-    class:flip
-    class:visible={!loading}
-    class:invisible={loading}
-    class:animate-fade-in={!loading}
-    on:click={onFlip}
-    style:width
-    style:height
-  >
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <slot name="front" />
-      </div>
-      <div class="flip-card-back">
-        <slot name="back" />
-      </div>
+<button
+  class={`flip-card ${className}`}
+  class:flip
+  class:visible={!loading}
+  class:invisible={loading}
+  class:animate-fade-in={!loading}
+  on:click={onFlip}
+  style:width
+  style:height
+>
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <slot name="front" />
     </div>
-  </button>
-</div>
+    <div class="flip-card-back">
+      <slot name="back" />
+    </div>
+  </div>
+</button>
 
 <style>
   .flip-card {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     background-color: transparent;
     perspective: 1000px;
-
-    font-size: 1.5em;
   }
 
   .flip-card-inner {
