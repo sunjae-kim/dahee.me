@@ -20,6 +20,15 @@
   })
 </script>
 
+<svelte:head>
+  <!-- Open Graph -->
+  <meta property="og:url" content="https://dahee.me/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dahee" />
+  <meta property="og:description" content="Introducing Dahee" />
+  <meta property="og:image" content="images/opengraph/index.png" />
+</svelte:head>
+
 <div class="h-screen bg-blue-50">
   <FlipCard class="fixed center" {width} {height} {loading}>
     <img slot="front" src="images/dahee.jpeg" alt="pretty dahee" bind:this={image} />
@@ -38,7 +47,7 @@
           href="https://m.blog.naver.com/PostList.naver?blogId=b2byby"
           target="_blank"
           on:click={e => e.stopPropagation()}
-          rel="noreferrer"><img src="/images/icons/naver-blog.png" alt="naver-blog" /></a
+          rel="noreferrer"><img src="images/icons/naver-blog.png" alt="naver-blog" /></a
         >
       </div>
     </div>

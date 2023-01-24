@@ -6,6 +6,15 @@
   import DahCharacter from '@/components/Christmas/DahCharacter/index.svelte'
 </script>
 
+<svelte:head>
+  <!-- Open Graph -->
+  <meta property="og:url" content="https://dahee.me/christmas" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dahee" />
+  <meta property="og:description" content="Merry Christmas🎄" />
+  <meta property="og:image" content="images/opengraph/christmas.png" />
+</svelte:head>
+
 <div class="layout">
   <SnowParticles />
   <Tree />
