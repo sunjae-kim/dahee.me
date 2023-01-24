@@ -4,7 +4,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Summer Diary" />
   <meta property="og:description" content="여름부장과 함께한 141일의 기록" />
-  <meta property="og:image" content="images/opengraph/summer-diary.jpg" />
+  <meta property="og:image" content="https://dahee.me/images/opengraph/summer-diary.jpg" />
 
   <!-- Redirect -->
   <meta

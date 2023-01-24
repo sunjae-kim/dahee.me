@@ -26,7 +26,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Dahee" />
   <meta property="og:description" content="Introducing Dahee" />
-  <meta property="og:image" content="images/opengraph/index.png" />
+  <meta property="og:image" content="https://dahee.me/images/opengraph/index.png" />
 </svelte:head>
 
 <div class="h-screen bg-blue-50">

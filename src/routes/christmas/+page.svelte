@@ -12,20 +12,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Dahee" />
   <meta property="og:description" content="Merry Christmas🎄" />
-  <meta property="og:image" content="images/opengraph/christmas.png" />
+  <meta property="og:image" content="https://dahee.me/images/opengraph/christmas.png" />
 </svelte:head>
 
-<div class="layout">
+<div class="h-screen bg-gray-900">
   <SnowParticles />
   <Tree />
   <SnowLand />
   <DahCharacter />
   <LittleSnowMan />
 </div>
-
-<style>
-  .layout {
-    background-color: #111;
-    height: 100vh;
-  }
-</style>
