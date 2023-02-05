@@ -1,7 +1,6 @@
 import { auth } from '@/vendors/firebase'
 import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, type User } from 'firebase/auth'
 import { writable } from 'svelte/store'
-const provider = new GoogleAuthProvider()
 
 type State = {
   user: User | null
@@ -10,6 +9,7 @@ type State = {
 }
 
 const useAuth = () => {
+  const provider = new GoogleAuthProvider()
   const state = writable<State>({ user: null, token: '', loading: true })
 
   const signInWithGoogle = () => {
@@ -42,7 +42,7 @@ const useAuth = () => {
   })
 
   return {
-    subscribe: state.subscribe,
+    state,
     signInWithGoogle,
     logout,
   }
