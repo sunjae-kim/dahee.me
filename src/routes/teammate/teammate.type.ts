@@ -4,7 +4,6 @@ namespace Teammate {
   }
 
   export interface Group {
-    name: string
     members: Member[]
   }
 }

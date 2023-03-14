@@ -1,16 +1,24 @@
 <script lang="ts">
   import useAuth from '@/utils/auth'
+  import useLocalstorageStore from '@/utils/localstorage'
   import Group from './components/Group.svelte'
   import Team from './components/Team.svelte'
   import useTeamateService from './teammate.service'
-  import type Teammate from './teammate.type'
   const { state: authState, signInWithGoogle, logout } = useAuth()
   const { createTeams } = useTeamateService()
 
-  let groups: Teammate.Group[] = []
-  let numGroups = 2
-  let numTeams = 2
+  const state = useLocalstorageStore('teammate', {
+    groupRawData: [] as string[],
+    numGroups: 2,
+    numTeams: 2,
+  })
+
   let teams = [] as string[][]
+  $: username = $authState.user?.displayName
+  $: groups = ($state.groupRawData || []).map(text => ({
+    members: text.split('\n').map(name => ({ name })),
+  }))
+  $: $state.groupRawData = $state.groupRawData.slice(0, $state.numGroups)
 </script>
 
 <!-- Header -->
@@ -20,8 +28,8 @@
     class:hidden={!$authState.user || $authState.loading}
   >
     <div>
-      <div class=" text-3xl">
-        <span>{$authState.user?.displayName}</span>
+      <div class="text-3xl">
+        {#if username}<span>{username}</span>{/if}
         <button on:click={logout}>logout</button>
       </div>
     </div>
@@ -49,33 +57,27 @@
       <div class="mt-4 flex">
         <div>
           <label for="num-groups">그룹 수: </label>
-          <input type="number" bind:value={numGroups} id="num-groups" min="1" max={10} />
+          <input type="number" bind:value={$state.numGroups} id="num-groups" min="1" max={10} />
         </div>
 
         <div>
           <label for="num-teams">팀 수: </label>
-          <input type="number" bind:value={numTeams} id="num-teams" min="1" max={99} />
+          <input type="number" bind:value={$state.numTeams} id="num-teams" min="1" max={99} />
         </div>
       </div>
 
       <div>엔터로 구분해서 입력해주세요 🐰</div>
 
       <div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-        {#each Array(numGroups) as _, i}
-          <Group
-            bind:group={groups[i]}
-            on:remove={() => {
-              groups = groups.filter((_, j) => j !== i)
-              numGroups = groups.length
-            }}
-          />
+        {#each Array($state.numGroups) as _, i}
+          <Group bind:text={$state.groupRawData[i]} />
         {/each}
       </div>
 
       <button
         class="mt-4 text-xl"
         on:click={() => {
-          teams = createTeams(groups, numTeams)
+          teams = createTeams(groups, $state.numTeams)
         }}>팀 만들기!</button
       >
 
